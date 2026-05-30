@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Script-Tuner Launcher</title>
+    <hta:application
+      id="ScriptTunerLauncher"
+      applicationname="Script-Tuner Launcher"
+      border="thin"
+      caption="yes"
+      maximizebutton="no"
+      minimizebutton="yes"
+      scroll="no"
+      singleinstance="yes"
+      sysmenu="yes"
+      windowstate="normal"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 28px;
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #1f2937;
+        background: #eef2f6;
+      }
+      h1 {
+        margin: 0 0 8px;
+        color: #005eb8;
+        font-size: 24px;
+      }
+      p {
+        margin: 0 0 18px;
+        color: #6b7280;
+        font-size: 13px;
+        line-height: 1.5;
+      }
+      button {
+        height: 40px;
+        border: 0;
+        border-radius: 8px;
+        padding: 0 18px;
+        color: #fff;
+        background: #005eb8;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .status {
+        margin-top: 14px;
+        color: #6b7280;
+        font-size: 12px;
+      }
+    </style>
+    <script language="VBScript">
+      Sub Window_OnLoad
+        ResizeTo 420, 240
+        LaunchService
+      End Sub
+
+      Sub LaunchService
+        Dim shell, fso, folder, command
+        Set shell = CreateObject("WScript.Shell")
+        Set fso = CreateObject("Scripting.FileSystemObject")
+        folder = fso.GetParentFolderName(document.location.pathname)
+        If Left(folder, 1) = "/" Then folder = Mid(folder, 2)
+        folder = Unescape(folder)
+        folder = Replace(folder, "/", "\")
+        shell.CurrentDirectory = folder
+        command = "cmd /c start ""Script-Tuner Backend"" "".\Start ScriptTuner.bat"""
+        shell.Run command, 0, False
+        document.getElementById("status").innerText = "Starting local backend and opening the web app..."
+      End Sub
+    </script>
+  </head>
+  <body>
+    <h1>Script-Tuner</h1>
+    <p>The local model service is starting. Keep the backend window open while using the web app.</p>
+    <button onclick="LaunchService">Start again</button>
+    <div class="status" id="status">Preparing launcher...</div>
+  </body>
+</html>

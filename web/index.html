@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Script-Tuner</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>Script-Tuner</h1>
+          <p>OPIc speaking script polish tool</p>
+        </div>
+        <div class="server-pill" id="serverPill">Checking model</div>
+      </header>
+
+      <section class="workspace" aria-label="Script tuning workspace">
+        <article class="panel">
+          <div class="panel-header">
+            <h2>Original Script</h2>
+            <span id="counter">0 / 4000</span>
+          </div>
+          <textarea
+            id="scriptInput"
+            maxlength="4000"
+            spellcheck="true"
+            placeholder="OPIc 답변 스크립트를 여기에 입력하세요."
+          ></textarea>
+          <div class="panel-actions input-actions">
+            <div class="style-toggle" role="radiogroup" aria-label="Speaking style">
+              <input id="styleCasual" name="style" type="radio" value="casual" checked />
+              <label for="styleCasual">Casual</label>
+              <input id="styleSemiFormal" name="style" type="radio" value="semi-formal" />
+              <label for="styleSemiFormal">Semi-formal</label>
+            </div>
+            <div class="button-row">
+              <button class="secondary-button" id="clearButton" type="button">지우기</button>
+              <div class="convert-wrap">
+                <button class="primary-button" id="convertButton" type="button" disabled>
+                  <span class="spinner" aria-hidden="true"></span>
+                  <span id="convertLabel">모델 확인 중</span>
+                </button>
+                <p class="status-text" id="statusText">Connecting to local backend...</p>
+                <form class="token-form" id="tokenForm" hidden>
+                  <input
+                    id="tokenInput"
+                    type="password"
+                    autocomplete="off"
+                    placeholder="hf_ Hugging Face token"
+                    aria-label="Hugging Face token"
+                  />
+                  <button class="token-button" type="submit">저장</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel result-panel">
+          <div class="panel-header">
+            <h2>Tuned Script</h2>
+            <span id="elapsedText"></span>
+          </div>
+          <div class="result-box" id="resultBox" aria-live="polite">
+            <p class="empty-state">변환된 스크립트가 여기에 표시됩니다.</p>
+          </div>
+          <div class="panel-actions result-actions">
+            <button class="secondary-button" id="copyButton" type="button" disabled>복사</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

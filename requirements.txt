@@ -1,0 +1,7 @@
+accelerate>=0.34
+huggingface-hub>=0.24
+peft>=0.12
+python-dotenv>=1.0
+sentencepiece>=0.2
+torch>=2.3
+transformers>=4.44

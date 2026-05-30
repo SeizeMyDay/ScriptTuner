@@ -17,6 +17,7 @@ python 환경이 설치되어 있어야 한다.
 ## HuggingFace
 HuggingFace private/gated 모델 접근을 위해 토큰이 필요하다.  
 모델: [T5Gemma 2 1B casual](https://huggingface.co/aip-scripttuner-team)
+모델은 QAIP 팀에서 직접 파인튜닝했다.
 
 토큰은 서비스 실행 후 ui  내에서 직접 입력하거나 터미널 창에서 다음 코드를 통해 환경변수로 직접 입력할 수 있다.
 

@@ -21,6 +21,7 @@
 body {
   min-height: 100vh;
   margin: 0;
+  padding-bottom: 28px;
   color: var(--ink);
   background: #eef2f6;
 }
@@ -332,6 +333,19 @@ button:disabled {
   display: inline-block;
 }
 
+.project-credit {
+  position: fixed;
+  right: max(16px, calc((100vw - 1180px) / 2));
+  bottom: 10px;
+  z-index: 5;
+  max-width: min(520px, calc(100vw - 28px));
+  color: rgba(107, 114, 128, 0.82);
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: right;
+  pointer-events: none;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -385,5 +399,12 @@ button:disabled {
   .style-toggle,
   .style-toggle label {
     width: 100%;
+  }
+
+  .project-credit {
+    position: static;
+    margin: 0 auto 10px;
+    padding: 0 10px;
+    text-align: center;
   }
 }

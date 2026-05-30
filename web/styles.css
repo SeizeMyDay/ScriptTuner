@@ -171,6 +171,7 @@ textarea::placeholder {
 
 .input-actions {
   align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .result-actions {
@@ -194,7 +195,7 @@ textarea::placeholder {
 }
 
 .style-toggle label {
-  min-width: 112px;
+  min-width: 104px;
   display: grid;
   place-items: center;
   padding: 0 14px;
@@ -268,7 +269,7 @@ button:disabled {
 }
 
 .status-text {
-  width: 230px;
+  width: 210px;
   min-height: 16px;
   margin: 0;
   color: var(--muted);
@@ -278,7 +279,7 @@ button:disabled {
 }
 
 .token-form {
-  width: 230px;
+  width: 210px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 6px;

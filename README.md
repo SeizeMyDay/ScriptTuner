@@ -15,8 +15,8 @@ python 환경이 설치되어 있어야 한다.
 5. 잠깐의 로딩 후 오른쪽 창에 변환 완료된 스크립트가 출력된다.
 
 ## HuggingFace
-HuggingFace private/gated 모델 접근을 위해 토큰이 필요하다.
-모델: https://huggingface.co/aip-scripttuner-team
+HuggingFace private/gated 모델 접근을 위해 토큰이 필요하다.  
+모델: [T5Gemma 2 1B casual](https://huggingface.co/aip-scripttuner-team)
 
 토큰은 서비스 실행 후 ui  내에서 직접 입력하거나 터미널 창에서 다음 코드를 통해 환경변수로 직접 입력할 수 있다.
 

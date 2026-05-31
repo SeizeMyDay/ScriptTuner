@@ -8,7 +8,7 @@ from dataclasses import dataclass
 class AppConfig:
     model_id: str = os.getenv(
         "SCRIPT_TUNER_MODEL_ID",
-        "aip-scripttuner-team/scripttuner-t5gemma2-1b-sbcsae-casual",
+        "aip-scripttuner-team/scripttuner-t5gemma2-1b",
     )
     host: str = os.getenv("SCRIPT_TUNER_HOST", "127.0.0.1")
     port: int = int(os.getenv("SCRIPT_TUNER_PORT", "7860"))

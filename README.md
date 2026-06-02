@@ -4,7 +4,7 @@ Script-Tuner는 OPIc 답변 스크립트를 더 자연스러운 구어체 영어
 왼쪽에 스크립트 초안을 입력하고 말하기 스타일을 지정하면, 모델이 더 자연스러운 스크립트로 변환해 오른쪽에 출력한다.
 
 <서비스 화면>  
-<img src="./img/img_main.JPG" width="50%" />
+<img src="./img/img_main.JPG"/>
 
 ## 프로젝트 목적
 

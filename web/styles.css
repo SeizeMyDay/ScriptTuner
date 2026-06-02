@@ -148,6 +148,7 @@ textarea::placeholder {
   flex: 1;
   min-height: 360px;
   padding: 20px;
+  display: block;
   white-space: pre-wrap;
   overflow: auto;
   line-height: 1.65;
@@ -156,7 +157,9 @@ textarea::placeholder {
 
 .empty-state {
   margin: 0;
+  padding: 0;
   color: #9aa3b2;
+  line-height: inherit;
 }
 
 .panel-actions {

@@ -111,7 +111,7 @@ Script-Tuner의 핵심 문제는 style transfer이다.
 현재 배포용 추론 앱은 Hugging Face에 업로드된 최신 Combined Model을 사용한다. 이 모델은 casual spoken 데이터와 Semi-formal 데이터가 결합된 모델이며, UI의 Casual / Semi-formal 선택에 따라 변환 스타일을 다르게 적용한다.
 
 ```text
-aip-scripttuner-team/scripttuner-t5gemma2-1b
+aip-scripttuner-team/scripttuner-t5gemma2-1b-combined
 ```
 
 모델 repository가 gated 또는 private일 수 있으므로 Hugging Face token이 필요하다. 토큰이 없으면 웹 UI에서 입력받아 현재 실행 세션에 적용한다.
@@ -203,7 +203,7 @@ http://127.0.0.1:7860/
 
 ```powershell
 $env:HF_TOKEN="hf_..."
-$env:SCRIPT_TUNER_MODEL_ID="aip-scripttuner-team/scripttuner-t5gemma2-1b"
+$env:SCRIPT_TUNER_MODEL_ID="aip-scripttuner-team/scripttuner-t5gemma2-1b-combined"
 $env:SCRIPT_TUNER_PORT="7860"
 ```
 
@@ -211,7 +211,7 @@ $env:SCRIPT_TUNER_PORT="7860"
 
 | 환경 변수 | 기본값 | 설명 |
 |---|---|---|
-| `SCRIPT_TUNER_MODEL_ID` | `aip-scripttuner-team/scripttuner-t5gemma2-1b` | 사용할 Hugging Face 모델 |
+| `SCRIPT_TUNER_MODEL_ID` | `aip-scripttuner-team/scripttuner-t5gemma2-1b-combined` | 사용할 Hugging Face 모델 |
 | `SCRIPT_TUNER_HOST` | `127.0.0.1` | 서버 host |
 | `SCRIPT_TUNER_PORT` | `7860` | 서버 port |
 | `SCRIPT_TUNER_MAX_INPUT_CHARS` | `4000` | 최대 입력 글자 수 |

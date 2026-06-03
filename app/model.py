@@ -13,6 +13,19 @@ STYLE_MAP = {
     "semi-formal": "<style:semi_formal>",
 }
 
+STYLE_INSTRUCTIONS = {
+    "<style:casual>": (
+        "Rewrite the input into natural casual spoken English. Preserve the "
+        "meaning, use conversational phrasing, and avoid sounding like a "
+        "formal written essay."
+    ),
+    "<style:semi_formal>": (
+        "Rewrite the input into clear semi-formal spoken English suitable for "
+        "an English speaking test. Preserve the meaning and make it sound "
+        "spoken, but keep it organized and not overly casual."
+    ),
+}
+
 
 @dataclass
 class ScriptTunerModel:
@@ -273,11 +286,11 @@ class ModelService:
                 ) from adapter_exc
 
 
-def build_opic_prompt(script: str, style: str = "casual") -> str:
+def build_opic_prompt(script: str, style: str = "<style:casual>") -> str:
+    instruction = STYLE_INSTRUCTIONS[style]
     return (
         f"{style}\n"
-        "Rewrite the input into natural spoken English for an OPIc speaking script. "
-        "Keep the original meaning, make it sound fluent and native-like, and avoid overly formal essay style.\n\n"
+        f"{instruction}\n\n"
         f"Input:\n{script.strip()}\n\n"
         "Output:"
     )

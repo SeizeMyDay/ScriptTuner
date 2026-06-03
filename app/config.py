@@ -3,7 +3,6 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 
-
 @dataclass(frozen=True)
 class AppConfig:
     model_id: str = os.getenv(

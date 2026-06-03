@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import os
-import re
 import threading
 from dataclasses import dataclass
 from typing import Any
@@ -10,9 +9,8 @@ from .config import AppConfig
 
 
 STYLE_MAP = {
-    "casual": "casual",
-    "semi-formal": "semi_formal",
-    "semi_formal": "semi_formal",
+    "casual": "<style:casual>",
+    "semi-formal": "<style:semi_formal>",
 }
 
 
@@ -208,10 +206,9 @@ class ModelService:
             prompt_len = inputs["input_ids"].shape[-1]
             decoded = tuner.tokenizer.decode(output_ids[0][prompt_len:], skip_special_tokens=True)
 
-        result = clean_model_output(decoded)
         if warmup:
-            return result
-        return result
+            return decoded
+        return decoded
 
     @staticmethod
     def _get_best_device(torch: Any) -> str:
@@ -223,7 +220,8 @@ class ModelService:
 
     @staticmethod
     def _normalize_style(style: str) -> str:
-        normalized = STYLE_MAP.get(style.strip().lower())
+        style_key = style.strip().lower().replace("_", "-")
+        normalized = STYLE_MAP.get(style_key)
         if normalized is None:
             raise ValueError("style must be either 'casual' or 'semi-formal'.")
         return normalized
@@ -277,18 +275,9 @@ class ModelService:
 
 def build_opic_prompt(script: str, style: str = "casual") -> str:
     return (
-        f"<STYLE={style}>\n"
+        f"{style}\n"
         "Rewrite the input into natural spoken English for an OPIc speaking script. "
         "Keep the original meaning, make it sound fluent and native-like, and avoid overly formal essay style.\n\n"
         f"Input:\n{script.strip()}\n\n"
         "Output:"
     )
-
-
-def clean_model_output(text: str) -> str:
-    text = text.strip()
-    text = re.sub(r"^Output:\s*", "", text, flags=re.IGNORECASE).strip()
-    text = re.sub(r"<STYLE=[^>]+>", "", text).strip()
-    text = re.sub(r"<pause:[^>]+>", "", text).strip()
-    text = re.sub(r"\s+", " ", text).strip()
-    return text

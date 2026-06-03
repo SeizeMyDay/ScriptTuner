@@ -233,18 +233,18 @@ $env:SCRIPT_TUNER_PORT="7860"
 7. `%ProgramFiles%\Python3*\python.exe`
 8. `%ProgramFiles(x86)%\Python3*\python.exe`
 
-따라서 일반적인 Python 설치라면 PATH에 등록되어 있지 않아도 실행될 가능성이 높다.  
-다만 임의 경로에만 설치되어 있고 시스템 등록이 전혀 없는 Python은 사용자가 PATH에 추가하거나 배치 파일에 경로를 직접 지정해야 한다.
+따라서 일반적인 방식으로 Python이 설치되었다면 PATH에 등록되어 있지 않아도 실행될 가능성이 높다.  
+Python이 위 목록에 없는 경로에 설치되었다면 사용자가 직접 경로를 PATH에 추가하거나 배치 파일에 지정해야 한다.
 
 ## 개발 및 검증
 
-Python 문법 확인은 다음 명령으로 수행한다.
+다음 명령으로 Python 문법을 검증한다.
 
 ```powershell
 python -m py_compile bootstrap.py run_app.py app\config.py app\model.py app\server.py
 ```
 
-프론트엔드 JavaScript 문법 확인은 다음 명령으로 수행한다.
+다음 명령으로 프론트엔드 JavaScript 문법을 검증한다.
 
 ```powershell
 node --check web\app.js
@@ -252,4 +252,4 @@ node --check web\app.js
 
 ## 추신
 
-본 Script-Tuner 서비스는 경희대학교 인공지능프로그래밍 수업의 팀 프로젝트의 일환으로, QAIP 팀에 의해 개발되었다.
+본 Script-Tuner 모델 및 서비스는 경희대학교 인공지능프로그래밍 수업에서 QAIP 팀에 의해 개발되었다.

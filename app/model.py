@@ -193,6 +193,7 @@ class ModelService:
             "pad_token_id": tuner.tokenizer.pad_token_id,
             "eos_token_id": tuner.tokenizer.eos_token_id,
             "repetition_penalty": self.config.repetition_penalty,
+            "no_repeat_ngram_size": self.config.no_repeat_ngram_size,
         }
         if self.config.do_sample:
             generation_kwargs.update(
@@ -275,8 +276,6 @@ class ModelService:
                     trust_remote_code=True,
                 )
                 model = PeftModel.from_pretrained(base_model, model_id, token=token)
-                if hasattr(model, "merge_and_unload"):
-                    model = model.merge_and_unload()
                 return model, is_encoder_decoder
             except Exception as adapter_exc:
                 raise RuntimeError(

@@ -19,5 +19,6 @@ class AppConfig:
     temperature: float = float(os.getenv("SCRIPT_TUNER_TEMPERATURE", "0.7"))
     top_p: float = float(os.getenv("SCRIPT_TUNER_TOP_P", "0.9"))
     repetition_penalty: float = float(os.getenv("SCRIPT_TUNER_REPETITION_PENALTY", "1.0"))
+    no_repeat_ngram_size: int = int(os.getenv("SCRIPT_TUNER_NO_REPEAT_NGRAM_SIZE", "0"))
     request_timeout_seconds: int = int(os.getenv("SCRIPT_TUNER_REQUEST_TIMEOUT_SECONDS", "120"))
     warmup_enabled: bool = os.getenv("SCRIPT_TUNER_WARMUP", "1") != "0"

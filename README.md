@@ -216,6 +216,8 @@ $env:SCRIPT_TUNER_PORT="7860"
 | `SCRIPT_TUNER_PORT` | `7860` | 서버 port |
 | `SCRIPT_TUNER_MAX_INPUT_CHARS` | `4000` | 최대 입력 글자 수 |
 | `SCRIPT_TUNER_MAX_NEW_TOKENS` | `256` | 생성 토큰 수 |
+| `SCRIPT_TUNER_REPETITION_PENALTY` | `1.0` | 반복 억제 |
+| `SCRIPT_TUNER_NO_REPEAT_NGRAM_SIZE` | `0` | 반복 n-gram 억제 |
 | `SCRIPT_TUNER_WARMUP` | `1` | 모델 warmup 실행 여부 |
 
 ## Python 실행 위치 검토
